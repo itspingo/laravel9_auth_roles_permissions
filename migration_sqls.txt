@@ -1,0 +1,30 @@
+
+   INFO  Running migrations.  
+
+  2014_10_12_000000_create_users_table ...............................................................................  
+  ⇂ create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  ⇂ alter table `users` add unique `users_email_unique`(`email`)  
+  2014_10_12_100000_create_password_resets_table .....................................................................  
+  ⇂ create table `password_resets` (`email` varchar(255) not null, `token` varchar(255) not null, `created_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  ⇂ alter table `password_resets` add index `password_resets_email_index`(`email`)  
+  2019_08_19_000000_create_failed_jobs_table .........................................................................  
+  ⇂ create table `failed_jobs` (`id` bigint unsigned not null auto_increment primary key, `uuid` varchar(255) not null, `connection` text not null, `queue` text not null, `payload` longtext not null, `exception` longtext not null, `failed_at` timestamp default CURRENT_TIMESTAMP not null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  ⇂ alter table `failed_jobs` add unique `failed_jobs_uuid_unique`(`uuid`)  
+  2019_12_14_000001_create_personal_access_tokens_table ..............................................................  
+  ⇂ create table `personal_access_tokens` (`id` bigint unsigned not null auto_increment primary key, `tokenable_type` varchar(255) not null, `tokenable_id` bigint unsigned not null, `name` varchar(255) not null, `token` varchar(64) not null, `abilities` text null, `last_used_at` timestamp null, `expires_at` timestamp null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  ⇂ alter table `personal_access_tokens` add index `personal_access_tokens_tokenable_type_tokenable_id_index`(`tokenable_type`, `tokenable_id`)  
+  ⇂ alter table `personal_access_tokens` add unique `personal_access_tokens_token_unique`(`token`)  
+  2022_10_30_144914_create_roles_table ...............................................................................  
+  ⇂ create table `roles` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `slug` varchar(255) not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  2022_10_30_145154_create_permissions_table .........................................................................  
+  ⇂ create table `permissions` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `slug` varchar(255) not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  2022_10_30_145909_create_user_permissions_table ....................................................................  
+  ⇂ create table `user_permissions` (`id` bigint unsigned not null auto_increment primary key, `user_id` bigint unsigned not null, `permission_id` bigint unsigned not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  ⇂ alter table `user_permissions` add unique `user_permissions_user_id_permission_id_unique`(`user_id`, `permission_id`)  
+  2022_10_30_145931_create_user_roles_table ..........................................................................  
+  ⇂ create table `user_roles` (`id` bigint unsigned not null auto_increment primary key, `user_id` bigint unsigned not null, `role_id` bigint unsigned not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  ⇂ alter table `user_roles` add unique `user_roles_user_id_role_id_unique`(`user_id`, `role_id`)  
+  2022_10_30_150659_create_role_permissions_table ....................................................................  
+  ⇂ create table `role_permissions` (`id` bigint unsigned not null auto_increment primary key, `role_id` bigint unsigned not null, `permission_id` bigint unsigned not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci'  
+  ⇂ alter table `role_permissions` add unique `role_permissions_role_id_permission_id_unique`(`role_id`, `permission_id`)  
+
